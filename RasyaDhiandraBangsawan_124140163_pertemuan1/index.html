@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kasir Kantin - Mini POS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Kasir Kantin</h1>
+    <p>Mini POS Pertemuan 1</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel" aria-labelledby="judul-input">
+      <h2 id="judul-input">Tambah barang</h2>
+      <form id="form-barang" novalidate>
+        <div class="field">
+          <label for="nama">Nama barang</label>
+          <input type="text" id="nama" placeholder="Contoh: Buku Tulis" autocomplete="off">
+          <p class="error" id="err-nama" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="harga">Harga satuan (Rp)</label>
+          <input type="text" id="harga" inputmode="numeric" placeholder="Minimal 500" autocomplete="off">
+          <p class="error" id="err-harga" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="qty">Jumlah</label>
+          <input type="text" id="qty" inputmode="numeric" placeholder="Minimal 1" autocomplete="off">
+          <p class="error" id="err-qty" role="alert"></p>
+        </div>
+        <button type="submit" class="btn primary">Tambah ke keranjang</button>
+      </form>
+
+      <h2 class="spaced">Pembayaran</h2>
+      <div class="field">
+        <label for="promo">Kode promo</label>
+        <input type="text" id="promo" placeholder="HEMAT10" autocomplete="off">
+        <p class="hint" id="info-promo"></p>
+      </div>
+      <div class="field">
+        <label for="bayar">Uang bayar (Rp)</label>
+        <input type="text" id="bayar" inputmode="numeric" placeholder="Nominal uang diterima" autocomplete="off">
+        <p class="hint" id="info-bayar"></p>
+      </div>
+    </section>
+
+    <section class="panel receipt" aria-labelledby="judul-keranjang">
+      <h2 id="judul-keranjang">Keranjang belanja</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th><th>Nama Barang</th><th class="num">Harga Satuan</th>
+              <th class="num">Qty</th><th class="num">Subtotal</th><th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="isi-keranjang"></tbody>
+        </table>
+      </div>
+      <p class="empty" id="kosong">Keranjang masih kosong. Tambahkan barang lewat form di samping.</p>
+
+      <dl class="summary">
+        <div><dt>Total belanja</dt><dd id="total">Rp 0</dd></div>
+        <div><dt id="label-diskon">Diskon</dt><dd id="diskon">– Rp 0</dd></div>
+        <div class="grand"><dt>Total bayar</dt><dd id="total-akhir">Rp 0</dd></div>
+        <div><dt>Uang bayar</dt><dd id="uang-bayar">Rp 0</dd></div>
+        <div class="grand"><dt id="label-kembali">Kembalian</dt><dd id="kembalian">Rp 0</dd></div>
+      </dl>
+
+      <button type="button" class="btn ghost" id="btn-reset">Transaksi baru</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

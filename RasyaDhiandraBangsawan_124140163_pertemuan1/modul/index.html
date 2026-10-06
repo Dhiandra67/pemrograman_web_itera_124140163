@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modul Praktikum JavaScript</title>
+  <style>
+    body { font-family: "Segoe UI", system-ui, sans-serif; max-width: 960px; margin: 0 auto; padding: 16px; line-height: 1.5; background: #fff; color: #17262b; }
+    body.dark { background: #12181b; color: #e4ecee; }
+    section { border: 1px solid #cfd9dc; border-radius: 8px; padding: 16px; margin-bottom: 20px; }
+    body.dark section, body.dark input, body.dark th, body.dark td { border-color: #38474d; }
+    body.dark input { background: #1b2428; color: inherit; }
+    h1, h2, h3 { margin-top: 0; }
+    pre { background: #eef3f4; padding: 10px; border-radius: 6px; overflow-x: auto; min-height: 1.5em; white-space: pre-wrap; }
+    body.dark pre { background: #1b2428; }
+    input { padding: 7px 10px; border: 1px solid #cfd9dc; border-radius: 6px; font: inherit; }
+    button { padding: 7px 12px; border: 1px solid #0f766e; background: #0f766e; color: #fff; border-radius: 6px; cursor: pointer; font: inherit; }
+    button:disabled { opacity: .5; cursor: not-allowed; }
+    button.sekunder { background: transparent; color: inherit; border-color: #8aa0a6; }
+    button.bahaya { background: #c62828; border-color: #c62828; }
+    .baris { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; align-items: flex-start; }
+    .field { display: flex; flex-direction: column; }
+    .error { color: #c62828; font-size: .85rem; min-height: 1.1em; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #cfd9dc; padding: 6px 8px; text-align: left; }
+    ul { padding-left: 20px; }
+    li.selesai .teks { text-decoration: line-through; opacity: .6; }
+  </style>
+</head>
+<body>
+  <h1>Modul Praktikum JavaScript <button id="btn-dark" class="sekunder" type="button">Mode gelap</button></h1>
+
+  <section>
+    <h2>Latihan 1: Kondisional</h2>
+    <pre id="out1"></pre>
+  </section>
+
+  <section>
+    <h2>Latihan 2: Fungsi dan Event Handler</h2>
+    <div class="baris">
+      <input type="text" id="angka" value="7" inputmode="numeric" aria-label="Angka">
+      <button id="btn-kali" type="button">Tabel perkalian</button>
+      <button id="btn-faktorial" type="button">Faktorial</button>
+      <button id="btn-prima" type="button">Cek prima</button>
+      <button id="btn-fizzbuzz" type="button">FizzBuzz 1-100</button>
+    </div>
+    <pre id="out2"></pre>
+    <h3>Kalkulator BMI</h3>
+    <div class="baris">
+      <input type="text" id="berat" placeholder="Berat (kg)" inputmode="decimal">
+      <input type="text" id="tinggi" placeholder="Tinggi (cm)" inputmode="decimal">
+      <button id="btn-bmi" type="button">Hitung BMI</button>
+    </div>
+    <pre id="hasil-bmi"></pre>
+  </section>
+
+  <section>
+    <h2>Latihan 3: Array, Objek, dan CRUD Mahasiswa</h2>
+    <form id="form-mhs" novalidate>
+      <div class="baris">
+        <div class="field"><input type="text" id="mhs-nama" placeholder="Nama"><span class="error" id="err-mhs-nama"></span></div>
+        <div class="field"><input type="text" id="mhs-nim" placeholder="NIM (9 digit)" inputmode="numeric"><span class="error" id="err-mhs-nim"></span></div>
+        <div class="field"><input type="text" id="mhs-jurusan" placeholder="Jurusan"><span class="error" id="err-mhs-jurusan"></span></div>
+        <div class="field"><input type="text" id="mhs-nilai" placeholder="Nilai (0-100)" inputmode="numeric"><span class="error" id="err-mhs-nilai"></span></div>
+        <button type="submit" id="btn-simpan-mhs">Tambah</button>
+        <button type="button" id="btn-batal-edit" class="sekunder" hidden>Batal</button>
+      </div>
+    </form>
+    <div class="baris">
+      <button id="btn-semua" type="button" class="sekunder">Semua</button>
+      <button id="btn-tertinggi" type="button" class="sekunder">Nilai tertinggi</button>
+      <button id="btn-filter-rata" type="button" class="sekunder">Di atas rata-rata</button>
+      <button id="btn-urut-asc" type="button" class="sekunder">Nama A-Z</button>
+      <button id="btn-urut-desc" type="button" class="sekunder">Nama Z-A</button>
+    </div>
+    <pre id="info-mhs"></pre>
+    <table>
+      <thead><tr><th>No</th><th>Nama</th><th>NIM</th><th>Jurusan</th><th>Nilai</th><th>Aksi</th></tr></thead>
+      <tbody id="tabel-mhs"></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Latihan Terakhir: Data dari API (Fetch)</h2>
+    <div class="baris"><input type="text" id="cari-post" placeholder="Cari berdasarkan title" style="flex:1"></div>
+    <p id="status-api"></p>
+    <ul id="daftar-post"></ul>
+    <div class="baris">
+      <button id="btn-prev" type="button">Previous</button>
+      <span id="info-halaman"></span>
+      <button id="btn-next" type="button">Next</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Latihan Terakhir: Todo List</h2>
+    <form id="form-todo" class="baris" novalidate>
+      <div class="field" style="flex:1"><input type="text" id="todo-input" placeholder="Tulis tugas baru"><span class="error" id="err-todo"></span></div>
+      <button type="submit">Tambah</button>
+    </form>
+    <ul id="todo-list"></ul>
+    <p id="todo-info"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
