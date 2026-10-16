@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard Tugas Kuliah</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>Dashboard Tugas Kuliah</h1>
+      <p id="today"></p>
+    </div>
+    <section class="widgets">
+      <div id="weather" class="widget" aria-live="polite">Memuat cuaca…</div>
+      <figure id="quote" class="widget" aria-live="polite">Memuat kutipan…</figure>
+    </section>
+  </header>
+
+  <main>
+    <section id="stats" class="stats" aria-label="Ringkasan"></section>
+
+    <section class="panel">
+      <h2 id="form-title">Tambah tugas</h2>
+      <form id="task-form">
+        <label class="wide">Judul tugas
+          <input name="title" required maxlength="80" placeholder="Contoh: Laporan praktikum JavaScript">
+        </label>
+        <label>Mata kuliah
+          <input name="course" maxlength="40" placeholder="Pemrograman Web">
+        </label>
+        <label>Tenggat
+          <input name="deadline" type="date">
+        </label>
+        <label>Prioritas
+          <select name="priority">
+            <option value="rendah">Rendah</option>
+            <option value="sedang" selected>Sedang</option>
+            <option value="tinggi">Tinggi</option>
+          </select>
+        </label>
+        <div class="actions">
+          <button type="submit" id="submit-btn" class="primary">Tambah tugas</button>
+          <button type="button" id="cancel-btn" hidden>Batal edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="list-head">
+        <h2>Daftar tugas</h2>
+        <div class="filters" role="group" aria-label="Filter tugas">
+          <button data-filter="semua" class="active">Semua</button>
+          <button data-filter="aktif">Aktif</button>
+          <button data-filter="selesai">Selesai</button>
+        </div>
+      </div>
+      <ul id="task-list" class="tasks"></ul>
+    </section>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
