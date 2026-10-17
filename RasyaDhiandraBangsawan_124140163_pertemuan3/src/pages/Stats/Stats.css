@@ -1,0 +1,5 @@
+.stats { background: #fff; padding: 1.2rem; border-radius: 10px; }
+.stat-row { margin: .8rem 0; }
+.bar { height: 10px; background: #e5e8f0; border-radius: 6px; overflow: hidden; margin-top: .25rem; }
+.fill { height: 100%; }
+.fill.milik { background: #2e9e6b; } .fill.baca { background: #e0a100; } .fill.beli { background: #4f6bed; }
